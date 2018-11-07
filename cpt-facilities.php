@@ -70,6 +70,19 @@ if ( ! class_exists( 'CPT_Facilities' ) ) {
 				
 			}
 			
+			if ( ! class_exists( 'RBM_CPTS' ) ||
+				! class_exists( 'RBM_FieldHelpers' ) ) {
+				
+				$this->admin_errors[] = sprintf( _x( 'To use the %s Plugin, both %s and %s must be active as either a Plugin or a Must Use Plugin!', 'Missing Dependency Error', 'cpt-facilities' ), '<strong>' . $this->plugin_data['Name'] . '</strong>', '<a href="//github.com/realbig/rbm-field-helpers-wrapper/" target="_blank">' . __( 'RBM Field Helpers', 'cpt-facilities' ) . '</a>', '<a href="//github.com/realbig/rbm-cpts/" target="_blank">' . __( 'RBM Custom Post Types', 'cpt-facilities' ) . '</a>' );
+				
+				if ( ! has_action( 'admin_notices', array( $this, 'admin_errors' ) ) ) {
+					add_action( 'admin_notices', array( $this, 'admin_errors' ) );
+				}
+				
+				return false;
+				
+			}
+			
 			$this->require_necessities();
 			
 			// Register our CSS/JS for the whole plugin
@@ -162,6 +175,8 @@ if ( ! class_exists( 'CPT_Facilities' ) ) {
 		 */
 		private function require_necessities() {
 			
+			require_once CPT_Facilities_DIR . '/core/cpt/class-cpt-facilities.php';
+			
 		}
 		
 		/**
@@ -247,7 +262,7 @@ if ( ! class_exists( 'CPT_Facilities' ) ) {
  * @since	  1.0.0
  * @return	  \CPT_Facilities The one true CPT_Facilities
  */
-add_action( 'plugins_loaded', 'cpt_facilities_load' );
+add_action( 'plugins_loaded', 'cpt_facilities_load', 11 );
 function cpt_facilities_load() {
 
 	require_once __DIR__ . '/core/cpt-facilities-functions.php';
