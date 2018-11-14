@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name: CPT Facilities
+ * Plugin Name: CPT Locations
  * Plugin URI: https://github.com/VLSLgithub/cpt-facilities
- * Description: Creates the Facilities CPT
+ * Description: Creates the Locations CPT
  * Version: 0.1.0
  * Text Domain: cpt-facilities
  * Author: Eric Defore

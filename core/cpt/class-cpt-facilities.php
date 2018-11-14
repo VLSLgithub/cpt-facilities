@@ -22,7 +22,7 @@ class CPT_Facilities_CPT extends RBM_CPT {
 		'supports' => array( 'title', 'editor', 'author', 'thumbnail' ), // We need to leave in Editor support for some TinyMCE scripts to load, but we will remove the Meta Box/Div
 		'has_archive' => false,
 		'rewrite' => array(
-			'slug' => 'facility',
+			'slug' => 'location',
 			'with_front' => false,
 			'feeds' => true,
 			'pages' => true
@@ -39,12 +39,12 @@ class CPT_Facilities_CPT extends RBM_CPT {
 	function __construct() {
 
 		// This allows us to Localize the Labels
-		$this->label_singular = __( 'Facility', 'cpt-facilities' );
-		$this->label_plural = __( 'Facilities', 'cpt-facilities' );
+		$this->label_singular = __( 'Location', 'cpt-facilities' );
+		$this->label_plural = __( 'Locations', 'cpt-facilities' );
 
 		$this->labels = array(
-			'menu_name' => __( 'Facilities', 'cpt-facilities' ),
-			'all_items' => __( 'All Facilities', 'cpt-facilities' ),
+			'menu_name' => __( 'Locations', 'cpt-facilities' ),
+			'all_items' => __( 'All Locations', 'cpt-facilities' ),
 		);
 
 		parent::__construct();
@@ -73,7 +73,7 @@ class CPT_Facilities_CPT extends RBM_CPT {
 		global $post;
 		
 		add_meta_box(
-			'vibrant-life-facility-meta',
+			'vibrant-life-location-meta',
 			sprintf( __( '%s Meta', 'cpt-facilities' ), $this->label_singular ),
 			array( $this, 'meta_metabox_content' ),
 			$this->post_type,
@@ -130,7 +130,7 @@ class CPT_Facilities_CPT extends RBM_CPT {
 	
 	public function remove_meta_boxes() {
 		
-		remove_post_type_support( 'facility', 'editor' );
+		remove_post_type_support( 'location', 'editor' );
 		
 	}
 	
@@ -139,14 +139,14 @@ class CPT_Facilities_CPT extends RBM_CPT {
 		rbm_cpts_do_field_text( array(
 			'label' => '<strong>' . __( 'Phone Number', 'cpt-facilities' ) . '</strong>',
 			'name' => 'phone_number',
-			'group' => 'facility_meta',
+			'group' => 'location_meta',
 			'input_class' => '',
 			'input_atts' => array(
 				'placeholder' => get_theme_mod( 'vibrant_life_phone_number', '(734) 913-0000' ),
 			),
 		) );
 		
-		rbm_cpts_init_field_group( 'facility_meta' );
+		rbm_cpts_init_field_group( 'location_meta' );
 		
 	}
 
@@ -168,7 +168,7 @@ class CPT_Facilities_CPT extends RBM_CPT {
 			'label' => '<strong>' . __( 'Tagline', 'cpt-facilities' ) . '</strong>',
 			'name' => 'hero_tagline',
 			'wysiwyg' => true,
-			'group' => 'facility_hero',
+			'group' => 'location_hero',
 			'wysiwyg_options' => vibrant_life_get_wysiwyg_options(),
 			'default' => '<h1><span style="color: #ffffff;">Senior Assisted Living &amp;  Memory Care in Michigan</span></h1>
 	<h2 class="p1"><span style="color: #F5A623;">people helping people thrive!</span></h2>',
@@ -177,7 +177,7 @@ class CPT_Facilities_CPT extends RBM_CPT {
 			'description_placement' => 'after_label',
 		) );
 
-		rbm_cpts_init_field_group( 'facility_hero' );
+		rbm_cpts_init_field_group( 'location_hero' );
 
 	}
 
@@ -186,18 +186,18 @@ class CPT_Facilities_CPT extends RBM_CPT {
 		rbm_cpts_do_field_media( array(
 			'label' => '<strong>' . __( 'Main Image', 'cpt-facilities' ) . '</strong>',
 			'name' => 'interstitial_image',
-			'group' => 'facility_interstitial',
+			'group' => 'location_interstitial',
 		) );
 
 		rbm_cpts_do_field_textarea( array(
 			'label' => '<strong>' . __( 'Main Content', 'cpt-facilities' ) . '</strong>',
 			'name' => 'interstitial_content',
 			'wysiwyg' => true,
-			'group' => 'facility_interstitial',
+			'group' => 'location_interstitial',
 			'wysiwyg_options' => vibrant_life_get_wysiwyg_options(),
 		) );
 
-		rbm_cpts_init_field_group( 'facility_interstitial' );
+		rbm_cpts_init_field_group( 'location_interstitial' );
 
 	}
 	
@@ -206,7 +206,7 @@ class CPT_Facilities_CPT extends RBM_CPT {
 		rbm_cpts_do_field_repeater( array(
 			'label' => '<strong>' . __( 'Content Blocks', 'cpt-facilities' ) . '</strong>',
 			'name' => 'interstitial_repeater',
-			'group' => 'facility_after_interstitial',
+			'group' => 'location_after_interstitial',
 			'fields' => array(
 				'image' => array(
 					'type' => 'media',
@@ -238,7 +238,7 @@ class CPT_Facilities_CPT extends RBM_CPT {
 			),
 		) );
 		
-		rbm_cpts_init_field_group( 'facility_after_interstitial' );
+		rbm_cpts_init_field_group( 'location_after_interstitial' );
 		
 	}
 
@@ -247,18 +247,18 @@ class CPT_Facilities_CPT extends RBM_CPT {
 		rbm_cpts_do_field_media( array(
 			'label' => '<strong>' . __( 'Image', 'cpt-facilities' ) . '</strong>',
 			'name' => 'call_to_action_image',
-			'group' => 'facility_call_to_action',
+			'group' => 'location_call_to_action',
 		) );
 
 		rbm_cpts_do_field_textarea( array(
 			'label' => '<strong>' . __( 'Content', 'cpt-facilities' ) . '</strong>',
 			'name' => 'call_to_action_content',
-			'group' => 'facility_call_to_action',
+			'group' => 'location_call_to_action',
 			'wysiwyg' => true,
 			'wysiwyg_options' => vibrant_life_get_wysiwyg_options(),
 		) );
 
-		rbm_cpts_init_field_group( 'facility_call_to_action' );
+		rbm_cpts_init_field_group( 'location_call_to_action' );
 
 	}
 
@@ -267,20 +267,20 @@ class CPT_Facilities_CPT extends RBM_CPT {
 		rbm_cpts_do_field_text( array(
 			'label' => '<strong>' . __( 'Video Section Header', 'cpt-facilities' ),
 			'name' => 'video_header_text',
-			'group' => 'facility_video',
+			'group' => 'location_video',
 			'default' => 'What People Say About Vibrant Life',
 		) );
 
 		rbm_cpts_do_field_text( array(
 			'label' => '<strong>' . __( 'Video URL', 'cpt-facilities' ) . '</strong>',
 			'name' => 'video_url',
-			'group' => 'facility_video',
+			'group' => 'location_video',
 			'description' => '<p class="description">' . __( 'Provide the Video URL, not the Embed Code.', 'cpt-facilities' ) . '</p>',
 			'description_tip' => false,
 			'description_placement' => 'after_label',
 		) );
 
-		rbm_cpts_init_field_group( 'facility_video' );
+		rbm_cpts_init_field_group( 'location_video' );
 
 	}
 
@@ -291,7 +291,7 @@ class CPT_Facilities_CPT extends RBM_CPT {
 	 */
 	public function admin_column_add( $columns ) {
 
-		$columns['facility_url'] = _x( 'Facility URL', 'Facility URL Admin Column Label', 'cpt-facilities' );
+		$columns['location_url'] = _x( 'Location URL', 'Location URL Admin Column Label', 'cpt-facilities' );
 
 		return $columns;
 
@@ -306,7 +306,7 @@ class CPT_Facilities_CPT extends RBM_CPT {
 
 		switch ( $column ) {
 
-			case 'facility_url' :
+			case 'location_url' :
 				echo rbm_field( $column, $post_id );
 				break;
 
