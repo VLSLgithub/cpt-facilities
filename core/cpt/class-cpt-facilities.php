@@ -71,6 +71,15 @@ class CPT_Facilities_CPT extends RBM_CPT {
 	public function add_meta_boxes() {
 
 		global $post;
+		
+		add_meta_box(
+			'vibrant-life-facility-meta',
+			sprintf( __( '%s Meta', 'cpt-facilities' ), $this->label_singular ),
+			array( $this, 'meta_metabox_content' ),
+			$this->post_type,
+			'side',
+			'low'
+		);
 
 		add_meta_box(
 			'vibrant-life-hero',
@@ -122,6 +131,22 @@ class CPT_Facilities_CPT extends RBM_CPT {
 	public function remove_meta_boxes() {
 		
 		remove_post_type_support( 'facility', 'editor' );
+		
+	}
+	
+	public function meta_metabox_content( $post_id ) {
+		
+		rbm_cpts_do_field_text( array(
+			'label' => '<strong>' . __( 'Phone Number', 'cpt-facilities' ) . '</strong>',
+			'name' => 'phone_number',
+			'group' => 'facility_meta',
+			'input_class' => '',
+			'input_atts' => array(
+				'placeholder' => get_theme_mod( 'vibrant_life_phone_number', '(734) 913-0000' ),
+			),
+		) );
+		
+		rbm_cpts_init_field_group( 'facility_meta' );
 		
 	}
 
