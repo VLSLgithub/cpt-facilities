@@ -78,7 +78,7 @@ class CPT_Facilities_CPT extends RBM_CPT {
 			array( $this, 'meta_metabox_content' ),
 			$this->post_type,
 			'side',
-			'high'
+			'low'
 		);
 
 		add_meta_box(
