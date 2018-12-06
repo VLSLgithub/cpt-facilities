@@ -78,7 +78,7 @@ class CPT_Facilities_CPT extends RBM_CPT {
 			array( $this, 'meta_metabox_content' ),
 			$this->post_type,
 			'side',
-			'low'
+			'high'
 		);
 
 		add_meta_box(
@@ -87,7 +87,7 @@ class CPT_Facilities_CPT extends RBM_CPT {
 			array( $this, 'hero_metabox_content' ),
 			$this->post_type,
 			'normal',
-			'low'
+			'high'
 		);
 		
 		add_meta_box(
@@ -96,7 +96,7 @@ class CPT_Facilities_CPT extends RBM_CPT {
 			array( $this, 'interstitial_metabox_content' ),
 			$this->post_type,
 			'normal',
-			'low'
+			'high'
 		);
 		
 		add_meta_box(
@@ -105,7 +105,7 @@ class CPT_Facilities_CPT extends RBM_CPT {
 			array( $this, 'after_interstitial_metabox_content' ),
 			$this->post_type,
 			'normal',
-			'low'
+			'high'
 		);
 		
 		add_meta_box(
@@ -114,7 +114,7 @@ class CPT_Facilities_CPT extends RBM_CPT {
 			array( $this, 'call_to_action_metabox_content' ),
 			$this->post_type,
 			'normal',
-			'low'
+			'high'
 		);
 		
 		add_meta_box(
@@ -123,7 +123,7 @@ class CPT_Facilities_CPT extends RBM_CPT {
 			array( $this, 'video_metabox_content' ),
 			$this->post_type,
 			'normal',
-			'low'
+			'high'
 		);
 
 	}
