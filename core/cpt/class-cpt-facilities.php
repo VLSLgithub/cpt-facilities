@@ -19,7 +19,7 @@ class CPT_Facilities_CPT extends RBM_CPT {
 	public $icon = 'admin-multisite';
 	public $post_args = array(
 		'hierarchical' => true,
-		'supports' => array( 'title', 'editor', 'author', 'thumbnail' ), // We need to leave in Editor support for some TinyMCE scripts to load, but we will remove the Meta Box/Div
+		'supports' => array( 'title', 'author', 'thumbnail' ),
 		'has_archive' => false,
 		'rewrite' => array(
 			'slug' => 'location',
