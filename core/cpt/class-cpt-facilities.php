@@ -137,6 +137,16 @@ class CPT_Facilities_CPT extends RBM_CPT {
 	public function meta_metabox_content( $post_id ) {
 		
 		rbm_cpts_do_field_text( array(
+			'label' => '<strong>' . __( 'Short Name', 'cpt-facilities' ) . '</strong>',
+			'name' => 'short_name',
+			'group' => 'location_meta',
+			'input_class' => '',
+			'description' => '<p class="description">' . __( 'This is used on the Home Page', 'cpt-facilities' ) . '</p>',
+			'description_tip' => false,
+			'description_placement' => 'after_label',
+		) );
+		
+		rbm_cpts_do_field_text( array(
 			'label' => '<strong>' . __( 'Phone Number', 'cpt-facilities' ) . '</strong>',
 			'name' => 'phone_number',
 			'group' => 'location_meta',
