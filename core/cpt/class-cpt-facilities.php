@@ -109,6 +109,15 @@ class CPT_Facilities_CPT extends RBM_CPT {
 		);
 		
 		add_meta_box(
+			'vibrant-life-before-call-to-action',
+			__( 'Before Call to Action Section', 'cpt-facilities' ),
+			array( $this, 'before_call_to_action_metabox_content' ),
+			$this->post_type,
+			'normal',
+			'high'
+		);
+		
+		add_meta_box(
 			'vibrant-life-call-to-action',
 			__( 'Call to Action Section', 'cpt-facilities' ),
 			array( $this, 'call_to_action_metabox_content' ),
@@ -250,6 +259,20 @@ class CPT_Facilities_CPT extends RBM_CPT {
 		
 		rbm_cpts_init_field_group( 'location_after_interstitial' );
 		
+	}
+	
+	public function before_call_to_action_metabox_content( $post_id ) {
+
+		rbm_cpts_do_field_textarea( array(
+			'label' => '<strong>' . __( 'Content', 'cpt-facilities' ) . '</strong>',
+			'name' => 'before_call_to_action',
+			'group' => 'before_call_to_action',
+			'wysiwyg' => true,
+			'wysiwyg_options' => vibrant_life_get_wysiwyg_options(),
+		) );
+
+		rbm_cpts_init_field_group( 'before_call_to_action' );
+
 	}
 
 	public function call_to_action_metabox_content( $post_id ) {
