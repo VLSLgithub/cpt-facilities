@@ -3,7 +3,7 @@
  * Plugin Name: CPT Locations
  * Plugin URI: https://github.com/VLSLgithub/cpt-facilities
  * Description: Creates the Locations CPT
- * Version: 0.1.0
+ * Version: 1.0.0
  * Text Domain: cpt-facilities
  * Author: Eric Defore
  * Author URI: https://realbigmarketing.com/
