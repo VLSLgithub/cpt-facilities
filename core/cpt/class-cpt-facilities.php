@@ -165,6 +165,16 @@ class CPT_Facilities_CPT extends RBM_CPT {
 			),
 		) );
 		
+		rbm_cpts_do_field_text( array(
+			'label' => '<strong>' . __( 'Schedule a Visit Form Email (Required)', 'cpt-facilities' ) . '</strong>',
+			'name' => 'form_email',
+			'group' => 'location_meta',
+			'input_class' => '',
+			'input_atts' => array(
+				'required' => true,
+			),
+		) );
+		
 		rbm_cpts_init_field_group( 'location_meta' );
 		
 	}
