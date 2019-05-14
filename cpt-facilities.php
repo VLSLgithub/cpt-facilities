@@ -8,6 +8,8 @@
  * Author: Eric Defore
  * Author URI: https://realbigmarketing.com/
  * Contributors: d4mation
+ * GitHub Plugin URI: VLSLgithub/cpt-facilities
+ * GitHub Branch: develop
  */
 
 // Exit if accessed directly
