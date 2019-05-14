@@ -125,6 +125,15 @@ class CPT_Facilities_CPT extends RBM_CPT {
 			'normal',
 			'high'
 		);
+
+		add_meta_box(
+			'vibrant-life-staff',
+			__( 'Staff Section', 'cpt-facilities' ),
+			array( $this, 'staff_metabox_content' ),
+			$this->post_type,
+			'normal',
+			'high'
+		);
 		
 		add_meta_box(
 			'vibrant-life-video',
@@ -302,6 +311,27 @@ class CPT_Facilities_CPT extends RBM_CPT {
 		) );
 
 		rbm_cpts_init_field_group( 'location_call_to_action' );
+
+	}
+
+	public function staff_metabox_content( $post_id ) {
+
+		rbm_cpts_do_field_media( array(
+			'label' => '<strong>' . __( 'Image', 'cpt-facilities' ) . '</strong>',
+			'name' => 'staff_location_image',
+			'group' => 'location_staff',
+		) );
+
+		rbm_cpts_do_field_textarea( array(
+			'label' => '<strong>' . __( 'Content', 'cpt-facilities' ) . '</strong>',
+			'name' => 'staff_location_content',
+			'group' => 'location_staff',
+			'wysiwyg' => true,
+			'wysiwyg_options' => vibrant_life_get_wysiwyg_options(),
+			'default' => '<p style="text-align: center;">[vibrant_life_button url="' . get_the_permalink( $post_id ) . 'staff/" color="tertiary" hollow="true" class="animate-on-scroll fade-in"]' . __( 'Our Staff', 'cpt-facilities' ) . '[/vibrant_life_button]</p>',
+		) );
+
+		rbm_cpts_init_field_group( 'location_staff' );
 
 	}
 
