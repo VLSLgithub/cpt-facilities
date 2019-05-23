@@ -328,7 +328,7 @@ class CPT_Facilities_CPT extends RBM_CPT {
 			'group' => 'location_staff',
 			'wysiwyg' => true,
 			'wysiwyg_options' => vibrant_life_get_wysiwyg_options(),
-			'default' => '<p style="text-align: center;">[vibrant_life_button url="' . get_the_permalink( $post_id ) . 'staff/" color="tertiary" hollow="true" class="animate-on-scroll fade-in"]' . __( 'Our Staff', 'cpt-facilities' ) . '[/vibrant_life_button]</p>',
+			'default' => '<p>[vibrant_life_staff featured=1]</p><p style="text-align: center;">[vibrant_life_button url="' . get_the_permalink( $post_id ) . 'staff/" color="tertiary" hollow="true" class="animate-on-scroll fade-in"]' . __( 'Our Staff', 'cpt-facilities' ) . '[/vibrant_life_button]</p>',
 		) );
 
 		rbm_cpts_init_field_group( 'location_staff' );
